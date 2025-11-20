@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kahwa Coffee - Fort Worth</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
@@ -16,15 +16,35 @@
             },
             colors: {
               kahwa: {
-                yellow: '#D4A017', // A richer, more gold-like yellow
-                black: '#1A1918', // Softer black
-                cream: '#F9F8F4', // Warm paper white
-                dark: '#2C241B', // Dark coffee bean brown
-                brown: '#5D4037', // Medium roast
+                yellow: '#D4A017', // Rich gold
+                black: '#1A1918', // Soft black
+                cream: '#F9F8F4', // Warm paper
+                dark: '#2C241B', // Espresso
+                brown: '#5D4037', // Roast
+                tan: '#E6DCC8', // Latte foam
               }
             },
             backgroundImage: {
               'paper-pattern': "url(\"data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M5 0h1v1H5V0zM0 5h1v1H0V5z'/%3E%3C/g%3E%3C/svg%3E\")",
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              zoomSlow: {
+                '0%': { transform: 'scale(1)' },
+                '100%': { transform: 'scale(1.1)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-5px)' },
+              }
+            },
+            animation: {
+              'fade-in': 'fadeIn 1s ease-out forwards',
+              'zoom-slow': 'zoomSlow 20s linear infinite alternate',
+              'float': 'float 3s ease-in-out infinite',
             }
           }
         }
@@ -55,7 +75,7 @@
   }
 </style>
 </head>
-  <body class="bg-kahwa-cream bg-paper-pattern">
+  <body class="bg-kahwa-cream bg-paper-pattern selection:bg-kahwa-yellow selection:text-kahwa-black">
     <div id="root"></div>
   </body>
 </html>
